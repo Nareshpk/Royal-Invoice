@@ -1,5 +1,11 @@
 document.getElementById("bill-to").innerText = "";
-document.getElementById("address").innerHTML = "";
+document.getElementById("houseNo").innerHTML = "";
+document.getElementById("addressLine1").innerHTML = "";
+document.getElementById("addressLine2").innerHTML = "";
+document.getElementById("city").innerHTML = "";
+document.getElementById("district").innerHTML = "";
+document.getElementById("state").innerHTML = "Tamil Nadu";
+document.getElementById("pincode").innerHTML = "";
 document.getElementById("mobile").innerText = "";
 document.getElementById("gst").innerText = "";
 document.getElementById("invoice-no").innerText = "";
@@ -170,7 +176,15 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   const billTo = document.getElementById("bill-to").value;
-  const address = document.getElementById("address").value;
+
+  const houseNo = document.getElementById("houseNo").value;
+  const addressLine1 = document.getElementById("addressLine1").value;
+  const addressLine2 = document.getElementById("addressLine2").value;
+  const city = document.getElementById("city").value;
+  const district = document.getElementById("district").value;
+  const state = document.getElementById("state").value;
+  const pincode = document.getElementById("pincode").value;
+
   const mobile = document.getElementById("mobile").value;
   const gst = document.getElementById("gst").value;
   const invoiceNo = document.getElementById("invoice-no").value;
@@ -220,7 +234,14 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   doc.text("Bill To:", 10, 66);
   doc.text(billTo, 10, 72);
   doc.setFont("helvetica", "normal");
-  doc.text(address, 10, 76);
+  doc.text(
+    houseNo + "," + " " + addressLine1 + "," + " " + addressLine2 + ",",
+    10,
+    78
+  );
+  doc.text(city + " ," + " " + district, 10, 82);
+  doc.text(state, 10, 86);
+  doc.text(`- ${pincode}`, 30, 86);
   doc.setFont("helvetica", "bold");
   doc.text(`Mobile No :`, 10, 90);
   doc.setFont("helvetica", "normal");
@@ -271,6 +292,14 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
           row.querySelector(".amount").value,
         ]
       ),
+      [
+        {
+          content: "Total Assessable Value",
+          colSpan: 5,
+          styles: { halign: "right" },
+        },
+        document.getElementById("totalAmount").value,
+      ],
       [
         { content: "CGST 9%", colSpan: 5, styles: { halign: "right" } },
         document.getElementById("cgst").value,
@@ -372,9 +401,9 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   doc.setFont("helvetica", "bold");
   doc.text("For Royal Paver Blocks", 140, doc.lastAutoTable.finalY + 15);
 
-  doc.addImage(base64Signature, "PNG", 155, 175, 20, 20);
+  // doc.addImage(base64Signature, "PNG", 155, 185, 20, 20);
 
-  // doc.text("Signature", 155, doc.lastAutoTable.finalY + 35);
+  doc.addImage(base64Signature, 145, doc.lastAutoTable.finalY + 17, 20, 17);
 
   doc.save("invoice.pdf");
 });
@@ -413,4 +442,35 @@ document.querySelectorAll('[id$="-header"]').forEach((header) => {
   header.addEventListener("click", () => {
     header.scrollIntoView({ behavior: "smooth" });
   });
+});
+
+const inputs = document.querySelectorAll("#addressForm input");
+const downloadBtn = document.getElementById("downloadBtn");
+
+function validateFormFields() {
+  let isValid = true;
+
+  inputs.forEach((input) => {
+    if (input.id === "pincode") {
+      const pin = input.value.trim();
+      if (!/^\d{6}$/.test(pin)) {
+        isValid = false;
+      }
+    } else if (input.value.trim() === "") {
+      isValid = false;
+    }
+  });
+
+  downloadBtn.disabled = !isValid;
+}
+
+// Attach input listeners
+inputs.forEach((input) => {
+  input.addEventListener("input", validateFormFields);
+});
+
+// Optional: Clear button functionality
+document.getElementById("clearBtn").addEventListener("click", () => {
+  inputs.forEach((input) => (input.value = ""));
+  validateFormFields(); // Re-validate after clearing
 });

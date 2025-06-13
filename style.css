@@ -213,3 +213,14 @@ textarea:focus {
 .hsn {
   border: 1px solid #ccc;
 }
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+}
