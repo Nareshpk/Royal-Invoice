@@ -1,7 +1,6 @@
 document.getElementById("bill-to").innerText = "";
 document.getElementById("houseNo").innerHTML = "";
 document.getElementById("addressLine1").innerHTML = "";
-document.getElementById("addressLine2").innerHTML = "";
 document.getElementById("city").innerHTML = "";
 document.getElementById("district").innerHTML = "";
 document.getElementById("state").innerHTML = "Tamil Nadu";
@@ -179,7 +178,6 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
 
   const houseNo = document.getElementById("houseNo").value;
   const addressLine1 = document.getElementById("addressLine1").value;
-  const addressLine2 = document.getElementById("addressLine2").value;
   const city = document.getElementById("city").value;
   const district = document.getElementById("district").value;
   const state = document.getElementById("state").value;
@@ -234,22 +232,19 @@ document.getElementById("downloadBtn").addEventListener("click", () => {
   doc.text("Bill To:", 10, 66);
   doc.text(billTo, 10, 72);
   doc.setFont("helvetica", "normal");
-  doc.text(
-    houseNo + "," + " " + addressLine1 + "," + " " + addressLine2 + ",",
-    10,
-    78
-  );
-  doc.text(city + " ," + " " + district, 10, 82);
-  doc.text(state, 10, 86);
-  doc.text(`- ${pincode}`, 30, 86);
+  doc.text(houseNo + ",", 10, 78);
+  doc.text(addressLine1 + ",", 10, 82);
+  doc.text(city + " ," + " " + district, 10, 86);
+  doc.text(state, 10, 90);
+  doc.text(`- ${pincode}`, 30, 90);
   doc.setFont("helvetica", "bold");
-  doc.text(`Mobile No :`, 10, 90);
+  doc.text(`Mobile No :`, 10, 96);
   doc.setFont("helvetica", "normal");
-  doc.text(mobile, 30, 90);
+  doc.text(mobile, 30, 96);
   doc.setFont("helvetica", "bold");
-  doc.text(`GST No   :`, 10, 94);
+  doc.text(`GST No   :`, 10, 102);
   doc.setFont("helvetica", "normal");
-  doc.text(gst, 30, 94);
+  doc.text(gst, 30, 102);
 
   // "Invoice Info" section
   doc.setFont("helvetica", "bold"); // Set font to bold
