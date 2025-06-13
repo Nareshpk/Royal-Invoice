@@ -1,0 +1,215 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  padding: 30px;
+}
+
+.invoice-box {
+  max-width: 900px;
+  margin: auto;
+  border: 1px solid #000;
+  padding: 30px;
+}
+
+.header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center-section {
+  flex: 1;
+  text-align: center;
+}
+
+.center-section h1 {
+  color: #0a1e4a;
+  margin: 0;
+}
+
+.subtitle {
+  color: red;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.right-logo {
+  width: 100px;
+  text-align: right;
+}
+
+.logo-img {
+  width: 80px;
+  height: auto;
+}
+
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.invoice-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: 2px solid #000;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: center;
+}
+
+.invoice-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.invoice-table tfoot td {
+  border-top: 2px solid #000;
+  font-weight: bold;
+}
+
+.amount-in-words {
+  margin: 20px 0;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #000;
+  padding-top: 20px;
+}
+
+.signature {
+  text-align: center;
+}
+
+.invoice-info input,
+.invoice-info textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  font-family: inherit;
+  background: transparent;
+  resize: none;
+}
+
+.invoice-table input {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.invoice-table input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+.invoice-table input[readonly] {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.text-right {
+  text-align: right !important;
+  padding-right: 10px;
+}
+
+.invoice-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.signature-area {
+  text-align: right;
+  margin-top: 40px;
+}
+
+#signature-pad {
+  border: 1px solid #ccc;
+  cursor: crosshair;
+}
+
+.signature-buttons button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Style for labels */
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style for input fields */
+input,
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Add focus effect for input fields */
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.hsn {
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Invoice - Royal Paver Blocks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="invoice-box">
+      <header class="header">
+        <div class="header-content">
+          <div class="right-logo">
+            <img src="logo.png" alt="Logo" class="logo-img" />
+            <img
+              id="logo"
+              src="logo.png"
+              alt="Company Logo"
+              style="display: none"
+            />
+          </div>
+          <div class="center-section">
+            <h1>ROYAL PAVER BLOCKS</h1>
+            <p class="subtitle">
+              Manufacturing Cool Roof Tiles and Paver Designer Tiles
+            </p>
+            <p>
+              NO.9, Subramani Nagar, Thalakudi Post,<br />
+              Lalgudi Taluk, Trichy - 621216.
+            </p>
+          </div>
+        </div>
+
+        <div class="header-bottom">
+          <p><strong>Contact:</strong> +91 96988 88226</p>
+          <p><strong>GST No:</strong> 33DVZPK1754A2ZH</p>
+        </div>
+      </header>
+
+      <h2 class="title">INVOICE</h2>
+
+      <div class="invoice-info">
+        <div class="left">
+          <p>
+            <strong>Bill To:</strong><br /><br />
+            <label for="Name">Name</label>
+            <input id="bill-to" value="" /><br />
+            <label for="Name">Address</label>
+            <textarea id="address" rows="3">
+Survey.Nos.261/1,261/2A,262/1,262/2,
+      Reddimanagudi Village, Lalgudi (Tk), Trichy – 621 105.</textarea
+            ><br />
+            Mobile No: <input id="mobile" value="" /><br />
+            GST No: <input id="gst" value="" />
+          </p>
+        </div>
+        <div class="right">
+          <p>
+            <strong>Invoice No:</strong>
+            <input id="invoice-no" type="number" value="" />
+          </p>
+          <p>
+            <strong>Invoice Date:</strong>
+            <input id="invoice-date" type="date" value="25.02.2025" />
+          </p>
+        </div>
+      </div>
+
+      <table class="invoice-table" id="invoiceTable">
+        <thead>
+          <tr>
+            <th>S. No</th>
+            <th>HSN Code</th>
+            <th>Description</th>
+            <th>Qty (in sq)</th>
+            <th>Rate</th>
+            <th>Taxable Amount</th>
+          </tr>
+        </thead>
+        <tbody id="invoice-body">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="" class="hsn" /></td>
+            <td>
+              <input type="text" value="" class="desc" />
+            </td>
+            <td><input type="number" value="" class="qty" /></td>
+            <td><input type="number" value="" class="rate" /></td>
+            <td>
+              <input type="text" class="amount" readonly value="" />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="text-right">Total Assessable Value</td>
+            <td><input type="text" id="totalAmount" readonly /></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-right">CGST 9%</td>
+            <td><input type="text" id="cgst" readonly /></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-right">SGST 9%</td>
+            <td><input type="text" id="sgst" readonly /></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-right"><strong>Total GST</strong></td>
+            <td><input type="text" id="totalGst" readonly /></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="text-right">
+              <strong>Total Invoice Value</strong>
+            </td>
+            <td><input type="text" id="finalTotal" readonly /></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div class="invoice-actions">
+        <button id="addRowBtn" class="btn add-btn">+ Add Item</button>
+
+        <button id="cancelBtn" class="btn cancel-btn">Cancel</button>
+      </div>
+      <p class="amount-in-words">
+        Amount in words:
+        <strong><span id="amountInWords">Zero Rupees Only</span></strong>
+      </p>
+
+      <div class="footer">
+        <div>
+          <p><strong>Bank Details:</strong></p>
+          <p>Bank Name – INDIAN Bank</p>
+          <p>Account Name – Royal Paver Block</p>
+          <p>Account No – 7682194645</p>
+          <p>IFSC Code – IDIB000V115</p>
+        </div>
+        <div class="signature-area">
+          <p><strong>For Royal Paver Blocks</strong></p>
+          <img src="sign.png" alt="" />
+        </div>
+      </div>
+      <hr />
+      <div class="invoice-actions">
+        <button id="clearBtn" class="btn cancel-btn">Clear</button>
+        <button id="downloadBtn" class="btn add-btn">Download PDF</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <!-- jsPDF and AutoTable CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
